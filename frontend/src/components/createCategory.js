@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios'
 import Swal from 'sweetalert2';
+import ExpensesList from './expensesList';
 
 
 export default class createCategory extends Component {
@@ -26,6 +27,7 @@ export default class createCategory extends Component {
      const category = {
       type: this.state.type
     };
+    axios.defaults.withCredentials=true;
     axios.post('http://localhost:8000/api/category/create', category)
       .then(res => console.log(res.data));
     Swal.fire(
@@ -51,7 +53,7 @@ export default class createCategory extends Component {
       <br></br>
       <br></br>
 
-      {/* <ExpensesList> </ExpensesList> */}
+       <ExpensesList> </ExpensesList> 
     </div>);
   }
 }
