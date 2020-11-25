@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Expense;
 
 class ExpenseController extends Controller
 {
@@ -13,7 +14,8 @@ class ExpenseController extends Controller
      */
     public function index()
     {
-        //
+        $expenses=Expense::all(); 
+        return response()->json($expenses); 
     }
 
     /**
@@ -34,7 +36,7 @@ class ExpenseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -79,6 +81,8 @@ class ExpenseController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $expense=Expense::find($id); 
+        $expense->delete(); 
+        return response()->json('Deleted Successfully');
     }
 }
