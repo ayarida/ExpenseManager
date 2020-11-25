@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-do
 import Login from './components/Login';
 import Home from './components/Home';
 import createCategory from './components/createCategory';
+import EditExpense from './components/editExpense';
 
 const App = () => {
     return (
@@ -25,6 +26,7 @@ const App = () => {
             </div>
             <Switch>
                 <Route path='/category' component={createCategory} />
+                <Route path="/editExpense/:id" component={EditExpense} />
             </Switch>
         </Router>
     );

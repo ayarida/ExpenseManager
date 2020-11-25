@@ -47,7 +47,8 @@ class ExpenseController extends Controller
      */
     public function show($id)
     {
-        //
+        $expense=Expense::find($id); 
+        return $expense;
     }
 
     /**
@@ -70,7 +71,20 @@ class ExpenseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required',
+            'category'=>'required',
+            'description' => 'required' //optional if you want this to be required
+        ]);
+        $expense=Expense::find($id); 
+        $expense->name=$request->get('name'); 
+        $expense->price=$request->get('price'); 
+        $expense->category_id=$request->get('category'); 
+        $expense->description=$request->get('description'); 
+        $expense->save(); 
+
+        return response()->json('Message Updated Successfully'); 
     }
 
     /**

@@ -22,11 +22,12 @@ export default class ExpenseTableRow extends Component {
                 <td>{this.props.obj.id}</td>
                 <td>{this.props.obj.name}</td>
                 <td>{this.props.obj.description}</td>
+                <td>{this.props.obj.price}</td>
                 <td>{this.props.obj.user_id}</td>
                 <td>{this.props.obj.category_id}</td>
 
                 <td>
-                    <Link className="edit-link" to={"/edit-expense/" + this.props.obj.id}>
+                    <Link className="edit-link" to={"/editExpense/" + this.props.obj.id}>
                        <button size="sm" variant="info">Edit</button>
                     </Link>
                     <button onClick={this.deleteExpense} size="sm" variant="danger">Delete</button>

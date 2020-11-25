@@ -11,6 +11,7 @@ class Category extends Model
 {
     use HasFactory;
     use SoftDeletes;
+    protected $fillable = ['type'];
 
     public function expenses(){
         return $this->hasMany(Expense::class);

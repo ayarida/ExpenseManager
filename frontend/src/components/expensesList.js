@@ -37,9 +37,10 @@ export default class ExpenseList extends Component {
       <table >
         <thead>
           <tr>
+            <th>Id</th>
             <th>Name</th>
-            <th>Amount</th>
             <th>Description</th>
+            <th>Price</th>
             <th>User Id</th>
             <th>Category Id</th>
             <th>Action</th>
